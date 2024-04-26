@@ -1,0 +1,59 @@
+
+:root {
+    --primery-color: red;
+    --secundery-color:green;
+
+
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    background-color: var(--primery-color);
+
+}
+
+body {
+
+    background-color: darkgray;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+nav {
+    display: inline-block;
+    justify-content: center;
+    list-style: none;
+    padding: 0px, 20px;
+    font-family: "Notable";
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+footer {
+    background-color: var(--secundery-color);
+    margin-top: auto;
+}
+
+
+.movie-card-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding: 20px;
+}
+
+.movie-card {
+    flex: 0 0 auto;
+    width: 200px;
+
+}

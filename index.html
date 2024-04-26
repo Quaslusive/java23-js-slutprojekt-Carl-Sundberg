@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/old_style.css">
+    <script type="module" src="js/main.js" defer></script>
+    <title>Slutprojekt - the Movie DataBase </title>
+</head>
+<body>
+<header>
+    <h1>Slutprojekt - the Movie DataBase</h1>
+</header>
+
+<main>
+    <div>
+        <nav>
+            <button id="topPop">Top 10 Populär Filmer!</button>
+            <button id="topRank">Top 10 Rankade Filmer!</button>
+        </nav>
+    </div>
+
+    <div>
+        <form id="searchForm">
+            <label>Skriv in din sökord</label> <br>
+            <input type="text" id="searchInput" placeholder="Sök..."> <br>
+            <span></span>
+            <select>
+                <option id="movie">Film</option>
+                <option id="people">Kändis</option>
+            </select>
+            <button>Sök</button>
+        </form>
+    </div>
+    <span></span>
+
+    <div id="resultContainer">
+        <!-- Search results will be displayed here -->
+    </div>
+    <div id="topPopularMovies">
+        <div class="movie-card-container">
+        </div>
+    </div>
+
+    <div id="topRatedMovies">
+
+    </div>
+
+    <div id="errorMessage" class="error-message">
+
+    </div>
+</main>
+
+<footer>
+    <p>Skapad av Carl Sundberg Limited</p>
+    <p>GritAcademy</p>
+</footer>
+</body>
+</html>
