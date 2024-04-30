@@ -33,12 +33,12 @@
 
 :root {
   --primery-color: #750371;
-  --secundery-color:green;
+  --secundery-color:#c608ec;
 
 }
 
 body {
-  background-image: url(/img/vaporware_animated_backgrund.gif);
+  background-image: url(/assets/vaporware_animated_backgrund.gif);
   background-position: center center;
   background-size: cover;
   background-attachment: fixed;
@@ -51,7 +51,6 @@ body {
   color: white;
   text-shadow: 0 0 3px #ff0000, 0 0 5px #31331d;
   justify-content: center;
-  font-family: "DotGothic16";
 
 }
 
@@ -78,15 +77,15 @@ main {
   align-items: center;
   position: relative;
   flex-direction: column;
-  margin: 0 auto;
+  margin: 100px auto;
   padding: 3%;
   height: max-content;
   width: 80%;
   border: 5px;
   border-radius: 20px;
   border-style: double;
-  border-color: #ff00d9;
-  background-color: #240e60;
+  border-color: var(--secundery-color);
+  background-color: var(--primery-color);
   background: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(10px);
   box-shadow: 20px 20px 50px 0px rgb(229, 59, 146) inset;
@@ -94,28 +93,25 @@ main {
   animation: slide-top 0.6s;
 }
 
-
-
 button {
   padding: 2%;
   border-radius: 0px;
   transition-duration: 0.4s;
   width: 70%;
-  background-color: #4e12da;
+  background-color: var(--primery-color);
   border: none;
   border-style: groove;
   border-radius: 5px;
-  border-color: #ff000098;
+  border-color: var(--secundery-color);
   color: white;
   text-shadow: 0 0 3px #ff0000, 0 0 5px #d9ed00;
   margin: 3%;
 }
 
-
 button:hover {
   box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
-    0 17px 50px 0 rgba(0, 0, 0, 0.19);
-  background-color: #c608ec;
+  0 17px 50px 0 rgba(0, 0, 0, 0.19);
+  background-color: var(--primery-color);
 }
 
 button:focus-visible {
@@ -123,71 +119,35 @@ button:focus-visible {
   background-color: #ffffff;
 }
 
-nav li {
-  display: inline-block;
-  justify-content: center;
-  list-style: none;
-  padding: 0px, 20px;
-  font-family: "Notable";
-}
-
-a {
-  text-decoration: none;
-  font-size: medium;
-  font-weight: 500;
-  color: #ffffff;
-  cursor: pointer;
-
-}
-nav li a:hover {
-  transition: all 0.4s ease 0s;
-  filter: drop-shadow(0.25rem 0 0.75rem #f07400);
-}
-
-nav li a:focus-visible {
-  color: #0b0113;
-  background-color: #ffffff;
-  transition: all 0.4s ease 0s;
-  filter: drop-shadow(0.25rem 0 0.75rem #f07400);
-}
-.top-titel {
-  display: flex;
-  justify-content: center;
+select {
   padding: 2%;
-  margin: 0;
-  font-family: "Faster One";
-  text-shadow: 0 0 3px #ff0000, 0 0 5px #d9ed00;
-  animation: fadeInAnimation 0.6s ease-in;
-}
-
-
-#spacer {
-  border-block-end-style: double;
-  border-block-end-color: #ff0000;
-}
-
-article {
+  border-radius: 0px;
+  transition-duration: 0.4s;
+  width: 70%;
+  background-color: var(--primery-color);
+  border: none;
   border-style: groove;
   border-radius: 5px;
-  border-color: #ff000098;
+  border-color: var(--secundery-color);
+  color: white;
+  text-shadow: 0 0 3px #ff0000, 0 0 5px #d9ed00;
+  margin: 3%;
+
 }
 
-article:hover {
-  box-shadow: 0 1px 8px #ffffff;
+select:hover {
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+  0 17px 50px 0 rgba(0, 0, 0, 0.19);
+  background-color: var(--primery-color);
 }
-article:focus {
-  color: #0b0113;
-  background-color: #ffffff;
-  transition: all 0.4s ease 0s;
-}
+
 
 footer {
   position: fixed;
   bottom: 0;
-  left: 0;
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   height: 50px;
   padding: 1% 3%;
   font-size: small;
@@ -201,7 +161,7 @@ input[type="text"],
 textarea {
   width: 100%;
   padding: 12px;
-  border: 2px solid #e707e7;
+  border: 2px solid var(--primery-color);
   border-radius: 5px;
   box-sizing: border-box;
   margin-top: 6px;
@@ -217,6 +177,7 @@ input[type="submit"] {
   border-radius: 5px;
   cursor: pointer;
 }
+
 
 input[type="submit"]:hover {
   color: #b93086;

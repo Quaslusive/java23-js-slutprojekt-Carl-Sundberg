@@ -1,5 +1,3 @@
-
-
 // Heter Access Token Auth i TMDB
 const BAERER_KEY ='7b084aa8e06d15c09a9025ea46e24773';
 

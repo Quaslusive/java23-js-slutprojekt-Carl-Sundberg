@@ -12,47 +12,31 @@
 </header>
 
 <main>
-    <div>
-        <nav>
-            <button id="topPop">Top 10 Populär Filmer!</button>
-            <button id="topRank">Top 10 Rankade Filmer!</button>
-        </nav>
-    </div>
-
-    <div>
-        <form id="searchForm">
-            <label>Skriv in din sökord</label> <br>
-            <input type="text" id="searchInput" placeholder="Sök..."> <br>
-            <span></span>
-            <select>
-                <option id="movie">Film</option>
-                <option id="people">Kändis</option>
-            </select>
-            <button>Sök</button>
-        </form>
-    </div>
+    <form id="searchForm">
+        <label>Skriv in din sökord</label> <br>
+        <input type="text" id="searchInput" placeholder="Sök..."> <br>
+        <span></span>
+        <select id="searchType">
+            <option value="movie">Film</option>
+            <option value="person">Kändis</option>
+        </select>
+        <button>Sök</button>
+    </form>
     <span></span>
 
+    <nav>
+        <button id="topPop">Top 10 Populär Filmer!</button>
+        <button id="topRank">Top 10 Rankade Filmer!</button>
+    </nav>
+
     <div id="resultContainer">
-        <!-- Search results will be displayed here -->
-    </div>
-    <div id="topPopularMovies">
-        <div class="movie-card-container">
-        </div>
-    </div>
-
-    <div id="topRatedMovies">
 
     </div>
 
-    <div id="errorMessage" class="error-message">
-
-    </div>
 </main>
 
 <footer>
     <p>Skapad av Carl Sundberg Limited</p>
-    <p>GritAcademy</p>
 </footer>
 </body>
 </html>
