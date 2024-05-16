@@ -3,13 +3,13 @@
  movies/actors with the use of the TMDB-API
  */
 
-import { loadSearchResults } from "./modules/fetchSearchResults.js";
-import { loadPopularMovies, loadRankedMovies} from "./modules/fetchTop10Movies.js";
+import {loadSearchResults} from "./modules/fetchSearchResults.js";
+import {loadPopularMovies, loadRankedMovies} from "./modules/fetchTop10Movies.js";
 
 const btnTopPop = document.querySelector("#topPop");
 const btnTopRank = document.querySelector("#topRank");
 const form = document.querySelector("#searchForm");
-const resultContainer = document.querySelector('#resultContainer');
+const resultContainer = document.querySelector('#result-container');
 
 btnTopPop.addEventListener('click', async () => {
     resultContainer.innerHTML = "";

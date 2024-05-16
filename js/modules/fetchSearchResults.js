@@ -14,7 +14,7 @@ export async function searchMovies(query) {
         return data.results;
     } catch (error) {
         console.error('Error fetching movie data:', error);
-        const errorMessage = document.querySelector('#resultContainer');
+        const errorMessage = document.querySelector('#result-container');
         errorMessage.textContent = 'Det gick inte att hitta en film med namnet ' + query;
         return [];
     }
@@ -33,7 +33,7 @@ export async function searchPeople(query) {
         return data.results;
     } catch (error) {
         console.error('Error fetching movie data:', error);
-        const errorMessage = document.querySelector('#resultContainer');
+        const errorMessage = document.querySelector('#result-container');
         errorMessage.textContent = 'Det gick inte att hitta en kändis med namnet ' + query;
         return [];
     }
@@ -51,7 +51,7 @@ export async function loadSearchResults(query, searchType) {
 }
 
 export async function displayResults(results, type) {
-    const resultContainer = document.querySelector('#resultContainer');
+    const resultContainer = document.querySelector('#result-container');
     const container = document.createElement('div');
     container.classList.add('result-container');
     

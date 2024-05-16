@@ -4,7 +4,7 @@ export async function fetchMovies(url) {
     try {
         const response = await fetch(url);
         if (!response.ok) {
-            document.querySelector("#resultContainer");
+            document.querySelector("#result-container");
             throw new Error('Något gick fel :(');
         }
         const data = await response.json();
@@ -15,7 +15,7 @@ export async function fetchMovies(url) {
     }
 
 function displayMovies(movies) {
-    const resultContainer = document.querySelector('#resultContainer');
+    const resultContainer = document.querySelector('#result-container');
     const container = document.createElement('div');
     container.classList.add('result-container');
 
@@ -23,7 +23,8 @@ function displayMovies(movies) {
         const resultDiv = document.createElement('div');
         resultDiv.classList.add('result-item');
 
-        const posterUrl = movie.poster_path ? `https://image.tmdb.org/t/p/w185${movie.poster_path}` : 'https://via.placeholder.com/185x278.png?text=Poster+Not+Available';
+        const posterUrl = movie.poster_path ? `https://image.tmdb.org/t/p/w185${movie.poster_path}`
+            : 'https://via.placeholder.com/185x278.png?text=Poster+Not+Available';
         const posterImg = document.createElement('img');
         posterImg.src = posterUrl;
         posterImg.alt = `${movie.title} Affisch`;
@@ -55,7 +56,7 @@ export async function loadPopularMovies() {
         displayMovies(movies);
     } catch (error) {
         console.error('Error loading popular movies:', error);
-        const errorMessage = document.querySelector('#resultContainer');
+        const errorMessage = document.querySelector('#result-container');
         errorMessage.textContent = 'Det gick inte att ladda in populära filmer';
     }
 }
@@ -67,7 +68,7 @@ export async function loadRankedMovies() {
         displayMovies(movies);
     } catch (error) {
         console.error('Error loading ranked movies:', error);
-        const errorMessage = document.querySelector('#resultContainer');
+        const errorMessage = document.querySelector('#result-container');
         errorMessage.textContent = 'Det gick inte att ladda in rankade filmer';
     }
 }

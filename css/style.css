@@ -1,14 +1,15 @@
 :root {
-    --primery-color: red;
-    --secundery-color: green;
-
+    --primary-color: red;
+    --secondary-color: green;
 }
 
 header {
     display: flex;
     justify-content: center;
-    background-color: var(--primery-color);
-
+    align-items: center;
+    background-color: var(--primary-color);
+    width: 100%;
+    padding: 20px;
 }
 
 body {
@@ -25,8 +26,9 @@ nav {
     display: inline-block;
     justify-content: center;
     list-style: none;
-    padding: 0px, 20px;
+    padding: 0px 20px;
     font-family: "Notable";
+    width: 100%;
 }
 
 main {
@@ -34,25 +36,33 @@ main {
     flex-wrap: wrap;
     justify-content: center;
     margin: 100px auto;
-    padding: 100px 100px;
+    padding: 20px;
 }
 
 footer {
-    background-color: var(--secundery-color);
+    background-color: var(--secondary-color);
     margin-top: auto;
+    width: 100%;
 }
 
 .result-container {
     display: flex;
-    overflow-x: auto;
+    flex-direction: column;
+    align-items: center;
     gap: 20px;
     padding: 20px;
 }
 
 .result-item {
-    flex: 0 0 auto;
-    width: 10%;
+    width: 100%;
     padding: 10px;
-    border: 1px solid var(--primery-color);
+    border: 1px solid var(--primary-color);
+    box-sizing: border-box;
+}
 
+.result-item img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
 }
