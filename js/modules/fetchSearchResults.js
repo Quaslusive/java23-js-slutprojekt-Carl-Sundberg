@@ -20,6 +20,7 @@ export async function searchMovies(query) {
 
         return data.results;
     } catch (error) {
+        console.error(error.message);
         const errorMessage = document.querySelector('#result-container');
         errorMessage.innerHTML = '';
         errorMessage.textContent = error.message;
@@ -47,7 +48,7 @@ export async function searchPeople(query) {
 
         return data.results;
     } catch (error) {
-        
+        console.error(error.message);
         const errorMessage = document.querySelector('#result-container');
         errorMessage.innerHTML = '';
         errorMessage.textContent = error.message;

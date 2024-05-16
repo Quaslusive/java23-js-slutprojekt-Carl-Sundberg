@@ -61,15 +61,10 @@ export async function loadPopularMovies() {
         const movies = await fetchMovies(url);
         displayMovies(movies);
     } catch (error) {
-        const resultContainer = document.querySelector('#result-container');
-        resultContainer.innerHTML = ''; // Clear previous results
-        if (error.message.includes('Network error')) {
-            resultContainer.textContent = 'Nätverksfel: Det gick inte att hämta data';
-        } else if (error.message.includes('Server error')) {
-            resultContainer.textContent = 'Serverfel: Det gick inte att hämta data';
-        } else {
-            resultContainer.textContent = 'Det gick inte att ladda in populära filmer';
-        }
+        console.error(error.message);
+        const errorMessage = document.querySelector('#result-container');
+        errorMessage.innerHTML = '';
+        errorMessage.textContent = error.message;
     }
 }
 
@@ -79,7 +74,7 @@ export async function loadRankedMovies() {
         const movies = await fetchMovies(url);
         displayMovies(movies);
     } catch (error) {
-        console.error('Error loading ranked movies:', error.message);
+        console.error(error.message);
         const errorMessage = document.querySelector('#result-container');
         errorMessage.innerHTML = '';
         errorMessage.textContent = error.message;
