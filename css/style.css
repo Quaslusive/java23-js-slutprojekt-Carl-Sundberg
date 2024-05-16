@@ -8,7 +8,6 @@ header {
     justify-content: center;
     align-items: center;
     background-color: var(--primary-color);
-    width: 100%;
     padding: 20px;
 }
 
@@ -19,24 +18,19 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    overflow-x: hidden;
-}
-
-nav {
-    display: inline-block;
-    justify-content: center;
-    list-style: none;
-    padding: 0px 20px;
-    font-family: "Notable";
-    width: 100%;
 }
 
 main {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    margin: 100px auto;
+    margin: 100px 0;
     padding: 20px;
+}
+
+nav {
+    list-style: none;
+    padding: 0px 20px;
+    font-family: "Notable";
 }
 
 footer {
@@ -54,7 +48,7 @@ footer {
 }
 
 .result-item {
-    width: 100%;
+    width: calc(100% - 40px);
     padding: 10px;
     border: 1px solid var(--primary-color);
     box-sizing: border-box;

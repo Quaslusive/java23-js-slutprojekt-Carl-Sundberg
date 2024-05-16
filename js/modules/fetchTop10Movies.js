@@ -1,21 +1,27 @@
-const API_KEY = "7b084aa8e06d15c09a9025ea46e24773";
-
+const API_KEY = "7b084aa8e06d15c09a9025ea46e24773?";
 export async function fetchMovies(url) {
     try {
         const response = await fetch(url);
         if (!response.ok) {
-            document.querySelector("#result-container");
-            throw new Error('Något gick fel :(');
+            if (response.status >= 500) {
+                throw new Error('Serverfel: Det gick inte att hämta data');
+            } else {
+                throw new Error('Nätverksfel: Det gick inte att hämta data');
+            }
         }
         const data = await response.json();
         return data.results.slice(0, 10);
     } catch (error) {
-        throw new Error(error.message);
+        const errorMessage = document.querySelector('#result-container');
+        errorMessage.innerHTML = '';
+        errorMessage.textContent = error.message;
+        throw error;
     }
-    }
+}
 
 function displayMovies(movies) {
     const resultContainer = document.querySelector('#result-container');
+    resultContainer.innerHTML = '';
     const container = document.createElement('div');
     container.classList.add('result-container');
 
@@ -55,9 +61,15 @@ export async function loadPopularMovies() {
         const movies = await fetchMovies(url);
         displayMovies(movies);
     } catch (error) {
-        console.error('Error loading popular movies:', error);
-        const errorMessage = document.querySelector('#result-container');
-        errorMessage.textContent = 'Det gick inte att ladda in populära filmer';
+        const resultContainer = document.querySelector('#result-container');
+        resultContainer.innerHTML = ''; // Clear previous results
+        if (error.message.includes('Network error')) {
+            resultContainer.textContent = 'Nätverksfel: Det gick inte att hämta data';
+        } else if (error.message.includes('Server error')) {
+            resultContainer.textContent = 'Serverfel: Det gick inte att hämta data';
+        } else {
+            resultContainer.textContent = 'Det gick inte att ladda in populära filmer';
+        }
     }
 }
 
@@ -67,8 +79,9 @@ export async function loadRankedMovies() {
         const movies = await fetchMovies(url);
         displayMovies(movies);
     } catch (error) {
-        console.error('Error loading ranked movies:', error);
+        console.error('Error loading ranked movies:', error.message);
         const errorMessage = document.querySelector('#result-container');
-        errorMessage.textContent = 'Det gick inte att ladda in rankade filmer';
+        errorMessage.innerHTML = '';
+        errorMessage.textContent = error.message;
     }
 }

@@ -14,7 +14,7 @@
 <main>
     <form id="searchForm">
         <label>Skriv in din sökord</label> <br>
-        <input type="text" id="searchInput" placeholder="Sök..."> <br>
+        <input type="text" id="searchInput" placeholder="Sök..." required>
         <span></span>
         <select id="searchType">
             <option value="movie">Film</option>
@@ -22,22 +22,13 @@
         </select>
         <button>Sök</button>
     </form>
-    <span></span> <br>
 
-
-
-    <nav id="nav-movies">
-        <button id="topPop">Top 10 Populär Filmer!</button>
+    <nav>
+        <button id="topPop">Top 10 Populär Filmer!</button> <br>
         <button id="topRank">Top 10 Rankade Filmer!</button>
     </nav>
 
-    <span></span>
-    <br>
-
-
-    <div id="result-container">
-
-    </div>
+    <div id="result-container"></div>
 
 </main>
 

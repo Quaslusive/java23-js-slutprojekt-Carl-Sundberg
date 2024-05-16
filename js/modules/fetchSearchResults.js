@@ -1,40 +1,56 @@
-const API_KEY = "7b084aa8e06d15c09a9025ea46e24773";
+const API_KEY = "7b084aa8e06d15c09a9025ea46e24773?";
 
 export async function searchMovies(query) {
     const url = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${query}`;
 
     try {
         const response = await fetch(url);
+        if (!response.ok) {
+            if (response.status >= 500) {
+                throw new Error('Serverfel: Det gick inte att hämta data');
+            } else {
+                throw new Error('Nätverksfel: Det gick inte att hämta data');
+            }
+        }
         const data = await response.json();
 
         if (!data.results || data.results.length === 0) {
-            throw new Error('No results found');
+            throw new Error('Ingen film med namnet \"' + query + '\" Var snäll och försök igen');
         }
 
         return data.results;
     } catch (error) {
-        console.error('Error fetching movie data:', error);
         const errorMessage = document.querySelector('#result-container');
-        errorMessage.textContent = 'Det gick inte att hitta en film med namnet ' + query;
+        errorMessage.innerHTML = '';
+        errorMessage.textContent = error.message;
         return [];
     }
 }
+
 export async function searchPeople(query) {
     const url = `https://api.themoviedb.org/3/search/person?api_key=${API_KEY}&query=${query}`;
 
     try {
         const response = await fetch(url);
+        if (!response.ok) {
+            if (response.status >= 500) {
+                throw new Error('Serverfel: Det gick inte att hämta data');
+            } else {
+                throw new Error('Nätverksfel: Det gick inte att hämta data');
+            }
+        }
         const data = await response.json();
 
         if (!data.results || data.results.length === 0) {
-            throw new Error('No results found');
+            throw new Error('Ingen kändis med namnet \"' + query + '\" Var snäll och försök igen');
         }
 
         return data.results;
     } catch (error) {
-        console.error('Error fetching movie data:', error);
+        
         const errorMessage = document.querySelector('#result-container');
-        errorMessage.textContent = 'Det gick inte att hitta en kändis med namnet ' + query;
+        errorMessage.innerHTML = '';
+        errorMessage.textContent = error.message;
         return [];
     }
 }
