@@ -54,13 +54,13 @@ export async function displayResults(results, type) {
     const resultContainer = document.querySelector('#result-container');
     const container = document.createElement('div');
     container.classList.add('result-container');
-    
+
     results.forEach(result => {
         const resultDiv = document.createElement('div');
         resultDiv.classList.add('result-item');
 
         if (type === 'movie') {
-            const posterUrl = result.poster_path ? `https://image.tmdb.org/t/p/w185${result.poster_path}` : 
+            const posterUrl = result.poster_path ? `https://image.tmdb.org/t/p/w185${result.poster_path}` :
                 'https://via.placeholder.com/185x278.png?text=Poster+Not+Available';
             const posterImg = document.createElement('img');
             posterImg.src = posterUrl;
@@ -80,7 +80,7 @@ export async function displayResults(results, type) {
             resultDiv.appendChild(releaseDate);
             resultDiv.appendChild(overview);
         } else if (type === 'person') {
-            const pictureUrl = result.profile_path ? `https://image.tmdb.org/t/p/w185${result.profile_path}` 
+            const pictureUrl = result.profile_path ? `https://image.tmdb.org/t/p/w185${result.profile_path}`
                 : 'https://via.placeholder.com/185x278.png?text=Picture+Not+Available';
             const pictureImg = document.createElement('img');
             pictureImg.src = pictureUrl;
@@ -93,12 +93,25 @@ export async function displayResults(results, type) {
             knownFor.textContent = `Känd för: ${result.known_for_department}`;
 
             const knownForMovies = document.createElement('p');
-            knownForMovies.textContent = `medverkade i: ${result.known_for.map(item => item.title).join(', ')}`;
+            knownForMovies.textContent = 'Medverkade i filmer:';
+            const knownForTV = document.createElement('p');
+            knownForTV.textContent = 'Medverkade i TV-program:';
 
+            // Robert Sean Leonard, Timothy Omundson, Tim Curry, Jack Price or Chris O'Donnell for showing both
+            // staring in tv and films
+            result.known_for.forEach(item => {
+                if (item.media_type === 'movie') {
+                    knownForMovies.textContent += ` ${item.title},`;
+                } else if (item.media_type === 'tv') {
+                    knownForTV.textContent += ` ${item.name},`;
+                }
+            });
+            
             resultDiv.appendChild(pictureImg);
             resultDiv.appendChild(name);
             resultDiv.appendChild(knownFor);
             resultDiv.appendChild(knownForMovies);
+            resultDiv.appendChild(knownForTV);
         }
 
         container.appendChild(resultDiv);
