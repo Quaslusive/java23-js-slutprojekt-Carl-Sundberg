@@ -1,4 +1,4 @@
-const API_KEY = "7b084aa8e06d15c09a9025ea46e24773?";
+const API_KEY = "7b084aa8e06d15c09a9025ea46e24773";
 export async function fetchMovies(url) {
     try {
         const response = await fetch(url);
